@@ -17,3 +17,5 @@ RUN ./setup.py install
 # Clean up
 RUN apt-get autoremove
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && rm -r /opt/gitclone
+
+ENTRYPOINT ["knockpy"]

@@ -4,3 +4,8 @@
 buildknock(){
 	docker build -f ../dockerfiles/knock/Dockerfile -t nahidupa/knock:01 ../dockerfiles/knock/  
 }
+
+testrunknock(){
+	docker  run -it \
+		nahidupa/knock:01 "$@" 
+}
