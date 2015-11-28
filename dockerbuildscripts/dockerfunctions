@@ -1,6 +1,7 @@
 #!/bin/bash
 # This are helper function to build the docker files
 
+#knock block start
 buildknock(){
 	docker build -f ../dockerfiles/knock/Dockerfile -t nahidupa/knock:01 ../dockerfiles/knock/  
 }
@@ -9,3 +10,24 @@ testrunknock(){
 	docker  run -it \
 		nahidupa/knock:01 "$@" 
 }
+
+#knock block end
+
+#drozer block start
+
+builddrozer(){
+	if [ ! -f ../dockerfiles/drozer/deb/drozer_2.3.4.deb ]
+	then
+		if[ ! -d  ../dpckerfiles/drozer/deb ] then mkdir ../dockerfiles/drozer/deb fi
+		wget -O ../dockerfiles/drozer/deb/drozer_2.3.4.deb https://www.mwrinfosecurity.com/system/assets/931/original/drozer_2.3.4.deb 
+	fi
+	docker build -f ../dockerfiles/drozer/Dockerfile -t nahidupa/drozer:01 ../dockerfiles/drozer/
+}
+
+testrundrozer(){
+	docker run -it \
+		nahidupa/drozer:01 "$@" 
+}
+#drozer block end
+
+

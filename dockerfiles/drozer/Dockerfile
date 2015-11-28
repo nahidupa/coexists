@@ -13,6 +13,11 @@ RUN touch /etc/bash_completion
 VOLUME /work
 COPY ./deb /work
 
+WORKDIR "/work"
+RUN dpkg -i *.deb
+
 # Clean up 
 RUN apt-get autoremove
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENTRYPOINT ["drozer"]
