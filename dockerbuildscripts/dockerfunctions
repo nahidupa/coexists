@@ -2,5 +2,5 @@
 # This are helper function to build the docker files
 
 buildknock(){
-	docker build ../dockerfiles/knock/Dockerfile ../dockerfiles/knock/ -t nahidupa/knock:0.1 
+	docker build -f ../dockerfiles/knock/Dockerfile -t nahidupa/knock:01 ../dockerfiles/knock/  
 }
